@@ -1,14 +1,6 @@
 {% extends "base.html" %}
     {% block content %}
-        <form action="/register" method="POST">
-            Email: <input type="email" name="email" placeholder="Email" required><br>
-            Password: <input type="password" name="pwd" placeholder="Password" required><br>
-            Submit: <input type="submit" value="Nýskrá">
-        </form>
-
-        <a href="/login">Already have an account? Log in here</a>
-
-        <h2>Movie quotes</h2>
+        <div class="centered-block"><h2>Movie quotes</h2>
         <table style="border: 0.6px solid;">
             <tr style="background: pink;">
                 <td>Name:</td>
@@ -25,6 +17,7 @@
                 </tr>
             {% endfor %}
         </table>
+        </div>
 
         
         <h1>Add movie, quote and director below!</h1>

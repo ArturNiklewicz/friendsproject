@@ -1,15 +1,33 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="centered-block">
-        <form action="/register" method="POST">
-            <label for="email">Email:</label>
-            <input type="email" name="email" placeholder="Email" required><br>
-    
-            <label for="pwd">Password:</label>
-            <input type="password" name="pwd" placeholder="Password" required><br>
-            <input type="submit" value="Register">
-        </form>
-        <a href="/login">Already have an account? Log in here</a>
-    </div>    
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">Register for an Account</h1>
+            <!-- Check if there is an error message passed to the template -->
+            {% if error %}
+            <p class="error-message">{{ error }}</p>
+            {% endif %}
+            <form action="/register" method="post">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Password:</label>
+                    <input type="password" name="pwd" id="pwd" class="form-control" placeholder="Password" required>
+                </div>
+                <div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </div>
+                    <div class="text-center">
+                        <a href="/login">Already have an account? Log in here</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}
