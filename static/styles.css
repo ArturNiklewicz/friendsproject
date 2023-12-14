@@ -108,7 +108,7 @@ main {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   padding: 20px; /* Spacing inside the block */
   margin: 20px auto; /* Centering the block and adding space around it */
-  max-width: 400px; /* Maximum width of the block */
+  max-width: 900px; /* Maximum width of the block */
   text-align: center; /* Centering the content inside the block */
 }
 

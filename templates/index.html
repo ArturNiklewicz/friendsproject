@@ -1,53 +1,45 @@
 {% extends "base.html" %}
     {% block content %}
-        <div class="centered-block"><h2>Movie quotes</h2>
-        <table style="border: 0.6px solid;">
-            <tr style="background: pink;">
-                <td>Name:</td>
-                <td>Quote:</td>
-                <td>Director:</td>
-                <td>Delete</td>
+    <div class="centered-block">
+        <h2>Movie quotes</h2>
+        <table style="width: 100%; border-collapse: collapse;">
+          <thead>
+            <tr style="background: #0583F2; color: white; text-align: center;">
+              <th>Name</th>
+              <th>Quote</th>
+              <th>Director</th>
+              <th>Delete</th>
             </tr>
+          </thead>
+          <tbody>
             {% for i in lst %}
-                <tr>
-                    <td>{{ i[1]['Name'] }}</td>
-                    <td>{{ i[1]["Quote"] }}</td>
-                    <td>{{ i[1]["Director"] }}</td>
-                    <td><a href="{{ url_for('delete_movie', movie_id=i[0]) }}">Delete</a></td>
-                </tr>
+            <tr style="text-align: center; border-bottom: 0.6px solid #ddd;">
+              <td>{{ i[1]['Name'] }}</td>
+              <td>{{ i[1]['Quote'] }}</td>
+              <td>{{ i[1]['Director'] }}</td>
+              <td><a href="{{ url_for('delete_movie', movie_id=i[0]) }}">Delete</a></td>
+            </tr>
             {% endfor %}
+          </tbody>
         </table>
-        </div>
-
+        <br>
         
         <h1>Add movie, quote and director below!</h1>
-
+        
         <form action="/add_movie" method="POST">
             <h3>Type in title</h3><input type="text" name="title">
             <h3>Type in quote</h3><input type="text" name="quote">
             <h3>Type in director</h3><input type="text" name="director">
-
+            
             <input type="submit" value="Add">
         </form>
+      
+        
         <br><br>
         {{ ckeditor.load() }}
         <h1>Tell us about your experience with movies!</h1>
-        <form action="/info" method="POST">
-            <h3>Title</h3><input type="text" name="title">
-            <h3>Leave a review about movie below!</h3>{{ ckeditor.create(name="ckA") }}
-            <h3>Share with us!</h3>{{ ckeditor.create(name="ckB") }}
-
-            <input type="submit" value="Push">
-        </form>
         
-        <h1>MOVIE QUOTES</h1>
-        {% for i in movies %}
-            <h3>{{ i[1]['Name'] }}</h3>
-            <h4>{{ i[1]['Quote'] }}</h4>
-            <h4>{{ i[1]['Director'] }}</h4>
-        {% endfor %}-->
-        
-        
+    </div>
     {% endblock %}
 
 {% block container %}
