@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block header %}Log In{% endblock %}
+
+{% block content %}
+    <form action="/signin" method="POST">
+        <label for="email">Email:</label>
+        <input type="email" name="email" placeholder="Email" required><br>
+
+        <label for="pwd">Password:</label>
+        <input type="password" name="pwd" placeholder="Password" required><br>
+
+        <input type="submit" value="Log In">
+    </form>
+
+    <a href="/register">Don't have an account? Register here</a>
+
+    {% for message in messages %}
+        <div class="alert alert-{{ message['category'] }}" role="alert">
+            {{ message['message'] }}
+        </div>
+    {% endfor %}
+{% endblock %}

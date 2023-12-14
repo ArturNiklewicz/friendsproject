@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block header %}
+    <div class="header-about">
+        <div class="header-content-about">
+            <div class="header-column-about">
+                <h1>Movie Details</h1>
+            </div>
+            <div class="header-column-about">
+                <h1>Best movies in the world</h1>
+            </div>
+            <div class="header-column-about">
+                <h1><a href="/">Home</a></h1>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+            <h2>Síða finnst ekki!</h2><br>
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='error-mynd.jpg') }}">
+            </div>
+            <br>
+{% endblock %}
+{% block footer %}
+    <div class="footer-about">
+        <div class="footer-content-about">
+            <div class="footer-column-about">
+                <h3>Author: Katarzyna Niklewicz</h3>
+            </div>
+            <div class="footer-column-about">
+                <h3>Verkefni 3</h3>
+            </div>
+            <div class="footer-column-about">
+                <h3>More Movies <a href="https://www.themoviedb.org/" target="_blank">here</a></h3>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+
+

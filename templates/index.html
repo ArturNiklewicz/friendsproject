@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+    {% block content %}
+        <form action="/register" method="POST">
+            Email: <input type="email" name="email" placeholder="Email" required><br>
+            Password: <input type="password" name="pwd" placeholder="Password" required><br>
+            Submit: <input type="submit" value="Nýskrá">
+        </form>
+
+        <a href="/login">Already have an account? Log in here</a>
+
+        <h2>Movie quotes</h2>
+        <table style="border: 0.6px solid;">
+            <tr style="background: pink;">
+                <td>Name:</td>
+                <td>Quote:</td>
+                <td>Director:</td>
+                <td>Delete</td>
+            </tr>
+            {% for i in lst %}
+                <tr>
+                    <td>{{ i[1]['Name'] }}</td>
+                    <td>{{ i[1]["Quote"] }}</td>
+                    <td>{{ i[1]["Director"] }}</td>
+                    <td><a href="{{ url_for('delete_movie', movie_id=i[0]) }}">Delete</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        
+        <h1>Add movie, quote and director below!</h1>
+
+        <form action="/add_movie" method="POST">
+            <h3>Type in title</h3><input type="text" name="title">
+            <h3>Type in quote</h3><input type="text" name="quote">
+            <h3>Type in director</h3><input type="text" name="director">
+
+            <input type="submit" value="Add">
+        </form>
+        <br><br>
+        {{ ckeditor.load() }}
+        <h1>Tell us about your experience with movies!</h1>
+        <form action="/info" method="POST">
+            <h3>Title</h3><input type="text" name="title">
+            <h3>Leave a review about movie below!</h3>{{ ckeditor.create(name="ckA") }}
+            <h3>Share with us!</h3>{{ ckeditor.create(name="ckB") }}
+
+            <input type="submit" value="Push">
+        </form>
+        
+        <h1>MOVIE QUOTES</h1>
+        {% for i in movies %}
+            <h3>{{ i[1]['Name'] }}</h3>
+            <h4>{{ i[1]['Quote'] }}</h4>
+            <h4>{{ i[1]['Director'] }}</h4>
+        {% endfor %}-->
+        
+        
+    {% endblock %}
+
+{% block container %}
+    
+    <h1>Send an email below!</h1>
+    <form action="/form_action" method="POST">
+        {{ f.csrf_token }}
+
+        {{ f.email.label }}
+        {{ f.email }}
+        <br>
+        {{ f.texti.label }}
+        {{ f.texti }}
+        <br>
+        {{ f.takki }}
+
+    </form>
+    
+    {{ ckeditor.load(pkg_type="basic") }}  <!--  Hlöðum editornum inn í templateið, pk_type= basic/standard/full -->
+    {{ ckeditor.config(name='texti') }}   <!--  hér veljum við field til að setja editorinn á, í þessu tilviki texti -->
+
+{% endblock %}

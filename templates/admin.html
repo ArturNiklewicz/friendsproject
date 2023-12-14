@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block header %}Admin Section{% endblock %}
+
+{% block content %}
+    <h2>Welcome, {{ currentUser['users'][0]['email'] }}</h2>
+    <p>Registered at: {{ currentUser['users'][0]['createdAt'] }}</p>
+    <p>Last logged in: {{ currentUser['users'][0]['lastLoginAt'] }}</p>
+    <p>You are now logged in. Enjoy your admin privileges!</p>
+    <p><a href="/">Check on movies, quotes, send email and more</a></p>
+    <form action="/logout" method="GET">
+        <input type="submit" value="Sign Out">
+    </form>
+{% endblock %}

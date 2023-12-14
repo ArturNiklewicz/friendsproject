@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+</body>
+</html>
+
+<h2>Nýskráning...</h2>
+    <form action="/register" method="POST">
+        Email: <input type="email" name="email" placeholder="Email" required><br>
+        Password: <input type="password" name="pwd" placeholder="Password" required><br>
+        Submit: <input type="submit" value="Nýskrá">
+    </form>
+
+-->
+    
+
+
+
+    {% block content %}
+        <a href="/register">REGISTER</a>          
+        <a href="/login">LOGIN</a>
+        <br>
+    {% endblock %}
